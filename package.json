@@ -1,0 +1,9 @@
+{
+  "name": "kwiaciarnia-malgorzata",
+  "private": true,
+  "type": "module",
+  "description": "Strona i sklep Kwiaciarni Małgorzata (Oława). Statyczna strona + funkcja Netlify do płatności Stripe.",
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}
