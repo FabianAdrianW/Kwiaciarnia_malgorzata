@@ -9,6 +9,8 @@ Strona wizytówka ze sklepem internetowym dla Kwiaciarni Małgorzata (ul. Jaros�
 | `index.html` | Strona główna: hero, galeria, szybkie zamówienie w 3 krokach, śluby, opinie, kontakt |
 | `sklep.html` | Sklep: kategorie, karta produktu (wielkość, bilecik), koszyk, zamówienie z płatnością online albo przy odbiorze |
 | `sukces.html` | Strona po udanej płatności |
+| `regulamin.html`, `polityka-prywatnosci.html` | Projekty dokumentów prawnych z polami TODO, do weryfikacji przez prawnika |
+| `tools/mega.py`, `tools/layout.py` | Wstawiają do wszystkich stron rozwijane menu oraz wspólny nagłówek i stopkę. Po edycji uruchom oba skrypty w tej kolejności |
 | `data/products.json` | Katalog: produkty, ceny, dopłaty za wielkość, koszt dostawy. **Jedyne źródło cen** dla sklepu i płatności |
 | `netlify/functions/create-checkout.mjs` | Funkcja, która tworzy płatność Stripe (BLIK, karta, Przelewy24). Ceny liczy po stronie serwera |
 | `img/`, `fonts/` | Zdjęcia (WebP) i kroje pisma (Fraunces, Instrument Sans) hostowane lokalnie |
@@ -38,4 +40,5 @@ Ceny i produkty zmienia się w `data/products.json`. Zdjęcie produktu wrzuć do
 - Ceny, nazwy i dopłaty za wielkość w `data/products.json` (teraz robocze)
 - Koszt i strefa dostawy (teraz 20 zł)
 - Godziny otwarcia w sekcji kontakt
-- Regulamin sklepu i polityka prywatności (wymagane przy sprzedaży online)
+- Uzupełnić i dać do sprawdzenia prawnikowi `regulamin.html` i `polityka-prywatnosci.html` (dane firmy, NIP, e-mail, strefa dostawy)
+- Po podpięciu domeny: pełne adresy w `og:image` i `sitemap.xml`

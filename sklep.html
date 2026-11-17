@@ -6,6 +6,12 @@
 <title>Sklep: bukiety online, Kwiaciarnia Małgorzata, Oława</title>
 <meta name="description" content="Zamów bukiet online w Kwiaciarni Małgorzata w Oławie. Wybierz bukiet, wielkość i termin. Odbiór w kwiaciarni albo dostawa. Płatność przy odbiorze.">
 <meta name="theme-color" content="#FBF7F4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Sklep z kwiatami, Kwiaciarnia Małgorzata">
+<meta property="og:description" content="Świeże bukiety, wiązanki ślubne i dekoracje. Zamów online z odbiorem albo dostawą.">
+<meta property="og:image" content="img/p16.webp"><!-- TODO: pełny adres URL po podpięciu domeny -->
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/logo-temp.png">
 <style>
 @font-face{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -24,7 +30,6 @@
   --f-d:"Fraunces",Georgia,serif;--f-t:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --nav-h:64px;--r:14px;--r-lg:22px;--ease:cubic-bezier(.22,1,.36,1);--wrap:min(1180px,100% - clamp(2rem,6vw,5rem));
 }
-@media (prefers-color-scheme:dark){:root{--bg:#1B1718;--surface:#262022;--blush:#3A2A2D;--blush-2:#2A2023;--sage-2:#222820;--ink:#F3ECEA;--muted:#BDB2B4;--line:rgba(243,236,234,.14);--rose:#D85A7E;--rose-deep:#C24468}}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--f-t);-webkit-font-smoothing:antialiased;overflow-x:clip;accent-color:var(--rose)}
@@ -52,6 +57,8 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 /* nav */
 .nav{position:fixed;inset:0 0 auto;z-index:50;height:var(--nav-h);background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
 .nav__in{width:var(--wrap);margin:auto;height:100%;display:flex;align-items:center;gap:1.5rem}
+.nav__cta{display:flex;align-items:center;gap:.5rem;flex:none;margin-left:auto}
+.menu{margin:0 auto!important}
 .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;flex:none}
 .brand img{width:38px;height:38px;border-radius:50%;background:#fff;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
 .brand b{font:420 1.08rem/1.1 var(--f-d);display:block}.brand small{display:block;font-size:.72rem;color:var(--muted);margin-top:2px}
@@ -176,6 +183,9 @@ textarea.input{min-height:64px;resize:vertical}
 .seg label:hover span{background:var(--blush-2)}.seg input:checked+span{background:var(--ink);color:var(--bg)}
 .seg input:focus-visible+span{outline:2px solid var(--rose);outline-offset:2px}
 .fld{margin-bottom:1rem}
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.85rem;color:var(--muted);cursor:pointer;margin:.2rem 0 .3rem}
+.consent input{width:18px;height:18px;margin-top:.15rem;flex:none}
+.consent a{color:var(--ink)}
 .err{color:var(--rose-deep);font-size:.8rem;margin-top:.3rem;display:none}.err.on{display:block}
 .mini{display:flex;gap:.5rem;align-items:center;padding:.6rem .8rem;border-radius:12px;background:var(--blush-2);font-size:.85rem;margin-bottom:1rem}
 .mini b{margin-left:auto}
@@ -202,6 +212,9 @@ footer{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.85rem;c
 }
 @media (max-width:520px){.grid{gap:1.2rem .8rem}.p__meta{flex-direction:column;gap:.1rem}.p__meta h3{font-size:1rem}.cartbtn .lbl{display:none}.brand small{display:none}.quick .btn{min-height:38px;font-size:.82rem;padding-inline:.6rem}.help{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+
+
+
 
 /* ===== mega menu ===== */
 .menu a .menu__desc{display:none}
@@ -266,6 +279,48 @@ footer{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.85rem;c
   .nav.is-open .menu a .menu__desc{display:block;font:400 .8rem/1.3 var(--f-text);color:var(--muted);margin-top:.15rem;letter-spacing:0}
 }
 @media (prefers-reduced-motion:reduce){.mega__box,.mp,.mp>*{transition:none!important}}
+
+/* ===== shared nav ===== */
+.menu{position:relative}
+.menu a{position:relative;z-index:1;background:none!important}
+.menu a[aria-current],.menu a.is-active{color:var(--ink)}
+.menu a::after{content:"";position:absolute;left:50%;bottom:2px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--rose);transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.menu a[aria-current]::after,.menu a.is-active::after{transform:scale(1)}
+.menu__pill{position:absolute;z-index:0;top:4px;left:0;height:calc(100% - 8px);width:0;border-radius:999px;background:var(--blush-2);opacity:0;pointer-events:none;
+  transition:transform .45s var(--ease),width .45s var(--ease),opacity .3s var(--ease)}
+.menu__pill.on{opacity:1}
+.burger{display:none;width:44px;height:44px;border:0;border-radius:999px;background:transparent;color:inherit;cursor:pointer;position:relative}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:currentColor;transition:transform .4s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:27px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.nav__tel{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .8rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.92rem;min-height:44px;transition:background .25s}
+.nav__tel:hover{background:var(--blush-2)}
+@media (max-width:1140px){
+  .menu{display:none!important}.burger{display:block}.menu__pill{display:none}
+  .nav__tel span{display:none}
+  .nav.is-open .menu{display:flex!important;position:fixed;inset:var(--nav-h) 0 auto 0;flex-direction:column;gap:0;margin:0;padding:1rem clamp(1rem,5vw,2.5rem) 2rem;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 30px 40px -30px rgba(47,42,43,.3)}
+  .nav.is-open .menu a{font:360 1.6rem/1.2 var(--f-display);color:var(--ink);padding:.8rem 0;border-radius:0;border-bottom:1px solid var(--line);animation:mIn .5s var(--ease) both}
+  .nav.is-open .menu li:nth-child(2) a{animation-delay:.04s}.nav.is-open .menu li:nth-child(3) a{animation-delay:.08s}.nav.is-open .menu li:nth-child(4) a{animation-delay:.12s}.nav.is-open .menu li:nth-child(5) a{animation-delay:.16s}
+  .nav.is-open .menu a::after{left:auto;right:0;top:50%;bottom:auto;margin:-2.5px 0 0}
+}
+@keyframes mIn{from{opacity:0;transform:translateY(8px)}}
+@media (max-width:560px){.nav__in{gap:.5rem}.brand{min-width:0}.brand span{min-width:0}.brand b{font-size:.98rem;white-space:normal;line-height:1.1}.brand small{display:none}.nav__cta{gap:.25rem}.cartbtn{padding:.5rem .75rem}.nav__tel{padding:.5rem .6rem}}
+
+/* ===== shared footer ===== */
+.foot{width:var(--wrap);margin:clamp(2.5rem,6vw,4rem) auto 0;padding:clamp(2rem,4vw,2.8rem) 0 1.4rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2rem;font-size:.9rem}
+.foot h3{font:600 .8rem/1 var(--f-text,"Instrument Sans",sans-serif);letter-spacing:.02em;color:var(--muted);margin:0 0 .9rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.foot a{color:var(--ink);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease)}
+.foot a:hover{background-size:100% 1px}
+.foot__brand{display:flex;flex-direction:column;gap:.7rem}
+.foot__brand b{font:400 1.35rem/1.1 var(--f-display,"Fraunces",serif)}
+.foot__brand p{color:var(--muted);max-width:32ch;margin:0}
+.foot__tel{font:300 1.6rem/1 var(--f-display,"Fraunces",serif)!important;letter-spacing:-.02em}
+.foot__bottom{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}.foot__brand{grid-column:1/-1}}
+@media (max-width:560px){.foot{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -279,8 +334,12 @@ footer{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.85rem;c
       <li><a href="index.html#opinie" data-mega="opinie">Opinie<svg class="menu__chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><small class="menu__desc">4,5 w Google, 148 opinii</small></a></li>
       <li><a href="index.html#kontakt" data-mega="kontakt">Kontakt<svg class="menu__chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><small class="menu__desc">Oława, Iwaszkiewicza 137A</small></a></li>
     </ul></nav>
-    <div class="nav__cta"><button class="cartbtn" id="openCart" aria-label="Koszyk"><svg class="i" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="lbl">Koszyk</span><span class="count" id="count">0</span></button></div>
+    <div class="nav__cta"><a class="nav__tel" href="tel:+48570740729" aria-label="Zadzwoń: 570 740 729"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>570 740 729</span></a><button class="cartbtn" id="openCart" aria-label="Koszyk"><svg class="i" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="lbl">Koszyk</span><span class="count" id="count">0</span></button></div>
   </div>
+
+
+
+
 
 <div class="mega" id="mega" aria-hidden="true">
   <div class="mega__box"><span class="mega__tip" aria-hidden="true"></span>
@@ -358,7 +417,16 @@ footer{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.85rem;c
   </section>
 </main>
 
-<footer class="wrap"><span>© 2026 Kwiaciarnia Małgorzata, ul. Iwaszkiewicza 137A, Oława · <a href="tel:+48570740729">570 740 729</a></span><span>Ceny orientacyjne, potwierdzamy je telefonicznie.</span></footer>
+
+
+
+<footer class="foot">
+  <div class="foot__brand"><b>Kwiaciarnia Małgorzata</b><p>Bukiety, kompozycje i&nbsp;dekoracje układane ręcznie w&nbsp;Oławie.</p><a class="foot__tel" href="tel:+48570740729">570 740 729</a></div>
+  <div><h3>Strona</h3><ul><li><a href="index.html#zamow">Zamów bukiet</a></li><li><a href="sklep.html">Sklep</a></li><li><a href="index.html#sluby">Śluby i dekoracje</a></li><li><a href="index.html#oferta">Galeria</a></li><li><a href="index.html#opinie">Opinie</a></li></ul></div>
+  <div><h3>Kontakt</h3><ul><li>ul. Jarosława Iwaszkiewicza 137A</li><li>55-200 Oława</li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=Kwiaciarnia+Ma%C5%82gorzata+Iwaszkiewicza+137A+O%C5%82awa" target="_blank" rel="noopener">Wyznacz trasę</a></li><li><a href="https://www.facebook.com/kwiaciarniamalgorzata" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+  <div><h3>Informacje</h3><ul><li><a href="regulamin.html">Regulamin sklepu</a></li><li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li><li>Płatności: BLIK, karta, Przelewy24</li></ul></div>
+  <div class="foot__bottom"><span>© 2026 Kwiaciarnia Małgorzata, Oława</span><span>Strona: Adrian Wojtasik</span></div>
+</footer>
 
 <div class="scrim" id="scrim"></div>
 
@@ -398,6 +466,7 @@ footer{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.85rem;c
     <div class="fld"><label class="lbl" for="fName">Imię</label><input class="input" id="fName" name="imie" autocomplete="given-name"></div>
     <div class="fld"><label class="lbl" for="fTel">Telefon</label><input class="input" id="fTel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" placeholder="np. 600 100 200"><p class="err" id="eTel">Wpisz numer telefonu (9 cyfr).</p></div>
     <div class="fld"><label class="lbl" for="fNote">Uwagi <span style="font-weight:400;color:var(--muted)">(opcjonalnie)</span></label><input class="input" id="fNote" name="uwagi" placeholder="Np. godzina odbioru, bez lilii"></div>
+    <label class="consent"><input type="checkbox" id="fOk" name="zgoda" value="tak"><span>Akceptuję <a href="regulamin.html" target="_blank">regulamin</a> i&nbsp;<a href="polityka-prywatnosci.html" target="_blank">politykę prywatności</a>.</span></label><p class="err" id="eOk">Zaznacz akceptację regulaminu.</p>
   </form>
   <!-- step 3 -->
   <div class="drawer__body" id="v3" hidden><div class="done"><div class="check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>Dziękujemy!</h3><p id="doneTxt">Zamówienie dotarło do kwiaciarni. Oddzwonimy, żeby potwierdzić szczegóły i cenę.</p></div></div>
@@ -509,6 +578,7 @@ $('#next').onclick=async()=>{if(step===1){setStep(2);setTimeout(()=>f.imie.focus
   if(f.kiedy.value==='Inny dzień'&&!f.data.value)bad(f.data,'#eDate');
   if(f.odbior.value==='Dostawa'&&!f.adres.value.trim())bad(f.adres,'#eAddr');
   if(f.telefon.value.replace(/\D/g,'').length<9)bad(f.telefon,'#eTel');
+  if(!f.zgoda.checked){$('#eOk').classList.add('on');if(ok)f.zgoda.focus();ok=false}
   if(!ok)return;
   $('#fCart').value=lines()+(f.odbior.value==='Dostawa'?'\nDostawa: '+zl(FEE):'')+'\nRazem: '+zl(total())+'\nPłatność: '+f.platnosc.value;
   const btn=$('#next');btn.disabled=true;btn.textContent='Wysyłamy…';
@@ -528,6 +598,8 @@ $('#next').onclick=async()=>{if(step===1){setStep(2);setTimeout(()=>f.imie.focus
     location.href='sms:+48570740729?&body='+encodeURIComponent(msg)}
   btn.disabled=false;cart=[];renderCart();setStep(3)};
 })();
+</script>
+<script>
 </script>
 <script>
 /* ===== mega menu ===== */
@@ -554,6 +626,22 @@ $('#next').onclick=async()=>{if(step===1){setStep(2);setTimeout(()=>f.imie.focus
   addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const c=cur;close();c.focus()}});
   mega.addEventListener('click',e=>{if(e.target.closest('a'))close()});
   addEventListener('scroll',()=>{if(cur&&scrollY>0&&!mega.matches(':hover'))close()},{passive:true});
+})();
+</script>
+<script>
+/* ===== shared nav: pill follows the cursor, dot marks the current place ===== */
+(()=>{const nav=document.querySelector('.nav'),menu=nav&&nav.querySelector('.menu');if(!menu)return;
+  let pill=menu.querySelector('.menu__pill');if(!pill){pill=document.createElement('li');pill.className='menu__pill';pill.setAttribute('aria-hidden','true');menu.appendChild(pill)}
+  const links=[...menu.querySelectorAll('a')];
+  const to=a=>{if(!a){pill.classList.remove('on');return}pill.style.width=a.offsetWidth+'px';pill.style.transform=`translateX(${a.offsetLeft}px)`;pill.classList.add('on')};
+  links.forEach(a=>{a.addEventListener('mouseenter',()=>to(a));a.addEventListener('focus',()=>to(a))});
+  const rest=()=>{const open=links.find(l=>l.classList.contains('is-open'));to(open||null)};
+  menu.addEventListener('mouseleave',()=>setTimeout(rest,180));
+  const mega=document.getElementById('mega');if(mega){mega.addEventListener('mouseleave',()=>setTimeout(rest,200));new MutationObserver(rest).observe(mega,{attributes:true,attributeFilter:['class']})}
+  let bg=nav.querySelector('.burger');
+  if(!bg){bg=document.createElement('button');bg.className='burger';bg.setAttribute('aria-expanded','false');bg.setAttribute('aria-label','Menu');bg.innerHTML='<span></span><span></span><span></span>';nav.querySelector('.nav__cta').appendChild(bg);
+    bg.addEventListener('click',()=>{const o=nav.classList.toggle('is-open');bg.setAttribute('aria-expanded',o)});
+    links.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');bg.setAttribute('aria-expanded','false')}))}
 })();
 </script>
 </body>

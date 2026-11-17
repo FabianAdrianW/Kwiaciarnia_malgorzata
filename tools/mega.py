@@ -154,9 +154,9 @@ CHEV = '<svg class="menu__chev" viewBox="0 0 10 10" aria-hidden="true"><path d="
 
 def inject(path, home):
     s = path.read_text()
-    s = re.sub(r'\n<div class="mega" id="mega".*?</div>\n</div>\n</div>', '', s, flags=re.S)
+    s = re.sub(r'\n<div class="mega" id="mega".*?</section>\n  </div></div>\n</div>', '', s, flags=re.S)
     s = re.sub(r'/\* ===== mega menu ===== \*/.*?(?=</style>)', '', s, flags=re.S)
-    s = re.sub(r'/\* ===== mega menu ===== \*/\n\(\(\)=>\{.*?\n\}\)\(\);\n', '', s, flags=re.S)
+    s = re.sub(r'<script>\n/\* ===== mega menu ===== \*/\n\(\(\)=>\{.*?\n\}\)\(\);\n</script>\n?', '', s, flags=re.S)
     keymap = {'#oferta': 'oferta', 'sklep.html': 'sklep', '#sluby': 'sluby', '#opinie': 'opinie', '#kontakt': 'kontakt'}
     def fix(m):
         href, rest, label = m.group(1), m.group(2), m.group(3)
@@ -166,7 +166,8 @@ def inject(path, home):
         label = re.sub(r'<svg class="menu__chev".*?</svg>|<small class="menu__desc">.*?</small>', '', label)
         rest = re.sub(r'\s*data-mega="\w+"', '', rest)
         return f'<li><a href="{href}"{rest} data-mega="{key}">{label}{CHEV}<small class="menu__desc">{DESCS[key]}</small></a></li>'
-    s = re.sub(r'<li><a href="([^"]+)"([^>]*)>(.*?)</a></li>', fix, s)
+    a = s.index('<ul class="menu"'); b = s.index('</ul>', a)
+    s = s[:a] + re.sub(r'<li><a href="([^"]+)"([^>]*)>(.*?)</a></li>', fix, s[a:b]) + s[b:]
     s = s.replace('</header>', panels(home) + '\n</header>', 1)
     s = s.replace('</style>', CSS + '</style>', 1)
     s = s.replace('</body>', '<script>' + JS + '</script>\n</body>', 1) if '<script>/* mega' not in s else s
@@ -175,4 +176,6 @@ def inject(path, home):
 if __name__ == '__main__':
     inject(ROOT / 'index.html', '')
     inject(ROOT / 'sklep.html', 'index.html')
+    for n in ['regulamin.html', 'polityka-prywatnosci.html']:
+        inject(ROOT / n, 'index.html')
     print('ok')

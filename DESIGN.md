@@ -15,7 +15,7 @@ Skala: odpowiednik dawnego zoomu 80% (tekst główny 16 px, nagłówki i odstęp
 | --ink | #2F2A2B | tekst |
 | --muted | #6B6164 | tekst pomocniczy |
 | --rose | #C24468 | jedyny kolor akcji (hover #A3304F) |
-Tryb ciemny: tło #1B1718, tekst #F3ECEA, akcja #D85A7E.
+Bez trybu ciemnego (decyzja Fabiana).
 
 ## Typografia
 Fraunces (300–440) do nagłówków, a kursywa w kolorze akcji pojawia się tylko w h1. Instrument Sans do tekstu. Oba kroje hostowane lokalnie, z latin-ext.
@@ -83,3 +83,13 @@ Logo w oryginale, zgoda na zdjęcia, ceny (79/129/199 zł robocze), godziny otwa
 - Sklep w menu: kategorie z miniaturami (linki `sklep.html#kat=…`) i bestseller ze zdjęciem.
 - Na mobile (burger) pod każdą pozycją jest krótki opis.
 - Generator: `tools/mega.py` wstawia panel do `index.html` i `sklep.html`. Treść paneli edytuje się w tym pliku.
+
+## Zmiany v5: spójność
+- Kolejność sekcji: Hero, Zamów bukiet, Śluby i dekoracje, Galeria, Opinie, Kontakt, stopka. Każda sekcja ma inną rolę i inny rytm.
+- Zamów bukiet: jeden duży polecany bukiet (`featured` w `products.json`) i lista 3 bukietów z miniaturą, opisem i ceną, a pod nią link „Zobacz cały sklep”. Progi u florystki (Mały, Średni, Duży) są liczone z tego samego cennika: najtańszy bukiet plus dopłata za wielkość.
+- Galeria pokazuje realizacje (dekoracje, wieńce, nagrobki, detal), a nie produkty ze sklepu. 6 zdjęć, na ostatnim znacznik „+5”, w lightboxie 11 zdjęć.
+- Menu: kropka pod pozycją oznacza miejsce, w którym jesteś (strona albo sekcja). Pigułka podąża tylko za kursorem i znika po jego zjechaniu, a przy otwartym panelu zostaje na tej pozycji.
+- Wspólny nagłówek (telefon, przycisk lub koszyk, burger poniżej 1140 px) i wspólna stopka na wszystkich stronach. Generatory: `tools/mega.py`, potem `tools/layout.py`.
+- Usunięto wstążkę i tryb ciemny.
+- Strony `regulamin.html` i `polityka-prywatnosci.html` to projekty z polami TODO, do weryfikacji przez prawnika. W koszyku jest wymagana zgoda na regulamin, a przy formularzu florystki informacja o polityce prywatności.
+- SEO: znaczniki Open Graph i `robots.txt` (sitemap po podpięciu domeny).
