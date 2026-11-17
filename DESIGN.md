@@ -72,3 +72,8 @@ Logo w oryginale, zgoda na zdjęcia, ceny (79/129/199 zł robocze), godziny otwa
 - Galeria: wariant 5 „Litery jako okna”. Napis „Galeria” jest wypełniony stałym zdjęciem czerwonego bukietu (p10), które przy scrollu przesuwa się w literach. Napis odsłania się od góry przy wejściu. Pod nim 6 zdjęć: wejście kaskadowe (clip-path), na hover zdjęcie unosi się, przybliża i pokazuje podpis, pozostałe przygasają, a nazwa po prawej zmienia się z animacją. Lightbox ma 11 zdjęć ze strzałkami, klawiaturą i swipe.
 - Sklep: katalog w `data/products.json`. Płatność online przez Stripe Checkout (BLIK, karta, Przelewy24), funkcja `netlify/functions/create-checkout.mjs`, strona `sukces.html`. Pozycje „od” (kompozycje, wieńce) wyłączają płatność online. Dostawa to stała opłata `delivery_fee` (20 zł, robocza). Bez klucza Stripe sklep przełącza się na płatność przy odbiorze.
 - Menu: „Sklep” zamiast „Zamów online”.
+
+## Zmiany v4.1: zamówienie połączone ze sklepem
+- Sekcja „Zamów bukiet”: 4 bestsellery ze sklepu (z `data/products.json`, kategoria bukiety, według `rec`) i kafel „Cały sklep”. Kliknięcie otwiera kartę produktu w sklepie (`sklep.html#p=id`). Pod spodem panel „Nie wiesz, co wybrać?”: szybkie zamówienie u florystki w jednym wierszu (wielkość, termin, odbiór, telefon).
+- Wejścia do sklepu: przycisk hero „Zamów bukiet”, przycisk w navbarze (z licznikiem koszyka), w lightboxie galerii „Zamów podobny” albo „Zobacz w sklepie”, dolny pasek na mobile (Zadzwoń / Sklep).
+- Sklep obsługuje deep link `#p=id` i od razu otwiera kartę produktu.

@@ -331,6 +331,7 @@ function movePill(b){pill.style.width=b.offsetWidth+'px';pill.style.transform=`t
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>{$$('#tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));cat=b.dataset.cat;movePill(b);apply()}));
 addEventListener('load',()=>movePill($('#tabs [aria-pressed=true]')));addEventListener('resize',()=>movePill($('#tabs [aria-pressed=true]')));movePill($('#tabs button'));
 $('#sort').addEventListener('change',apply);apply();
+const deep=()=>{const m=location.hash.match(/p=([\w-]+)/);if(m&&P.find(x=>x.id===m[1]))setTimeout(()=>openSheet(m[1]),350)};
 const tb=$('#toolbar');addEventListener('scroll',()=>tb.classList.toggle('stuck',tb.getBoundingClientRect().top<=64.5&&scrollY>100),{passive:true});
 /* cart state */
 let cart=[];try{cart=JSON.parse(localStorage.getItem('km-cart')||'[]')}catch(_){}
@@ -352,6 +353,7 @@ function add(id,size='M',q=1,cardTxt='',from){const ex=cart.find(c=>c.id===id&&c
   else{b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
   toast(P.find(p=>p.id===id).name+' w koszyku')}
 let tt;function toast(t,force){if(!force&&document.body.classList.contains('lock')&&!/niedostępna/.test(t))return;$('#toastTxt').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),3200)}
+addEventListener('hashchange',()=>deep());
 $('#toastBtn').onclick=()=>{$('#toast').classList.remove('on');openDrawer()};
 renderCart();
 if(new URLSearchParams(location.search).has('anulowano'))setTimeout(()=>toast('Płatność anulowana. Koszyk czeka na Ciebie.'),600);
@@ -375,6 +377,7 @@ $('#sCard').addEventListener('input',e=>$('#sCnt').textContent=e.target.value.le
 $('#sAdd').onclick=()=>{const s=(sheet.querySelector('input[name=sz]:checked')||{}).value||'M';const img=$('#sImg');closeAll();add(cur.id,s,qty,$('#sCard').value.trim(),img)};
 grid.addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){e.stopPropagation();add(a.dataset.add,'M',1,'',a.closest('.p__img'));return}
   const o=e.target.closest('[data-open]');if(o)openSheet(o.dataset.open)});
+deep();
 /* drawer & checkout */
 let step=1;
 function setStep(n){step=n;$('#v1').hidden=n!==1;$('#v2').hidden=n!==2;$('#v3').hidden=n!==3;
