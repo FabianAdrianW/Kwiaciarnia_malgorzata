@@ -93,3 +93,6 @@ Logo w oryginale, zgoda na zdjęcia, ceny (79/129/199 zł robocze), godziny otwa
 - Usunięto wstążkę i tryb ciemny.
 - Strony `regulamin.html` i `polityka-prywatnosci.html` to projekty z polami TODO, do weryfikacji przez prawnika. W koszyku jest wymagana zgoda na regulamin, a przy formularzu florystki informacja o polityce prywatności.
 - SEO: znaczniki Open Graph i `robots.txt` (sitemap po podpięciu domeny).
+
+## Zmiany v5.1: mniejsza skala
+- Bazowa wielkość tekstu to 15 px (wcześniej 16). Kontener ma maks. 1120 px. Nagłówki, napis „Galeria”, numer telefonu, cytaty i przyciski są mniejsze o 12–20%. Wartości są w `tools/layout.py`, w sekcji „skala”: jedna zmiana działa na wszystkie strony.

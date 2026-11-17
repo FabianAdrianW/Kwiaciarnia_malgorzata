@@ -33,6 +33,24 @@ NAV_CSS = '''
 @keyframes mIn{from{opacity:0;transform:translateY(8px)}}
 @media (max-width:560px){.nav__in{gap:.5rem}.brand{min-width:0}.brand span{min-width:0}.brand b{font-size:.98rem;white-space:normal;line-height:1.1}.brand small{display:none}.nav__cta{gap:.25rem}.cartbtn{padding:.5rem .75rem}.nav__tel{padding:.5rem .6rem}}
 
+/* ===== skala (mniejsza, spokojniejsza) ===== */
+html{font-size:15px}
+:root{--wrap:min(1120px,100% - clamp(2rem,6vw,5rem))}
+h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
+.hero h1{font-size:clamp(2.1rem,min(4.1vw,7svh),3.5rem)}
+.order .order__head h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
+.gal__word{font-size:clamp(4rem,min(14.5vw,25svh),12.5rem)}
+.bigtel{font-size:clamp(2.2rem,4.4vw,3.4rem)}
+.slide blockquote{font-size:clamp(1.15rem,1.9vw,1.6rem)}
+.rating b{font-size:clamp(3rem,5vw,4rem)}
+.head h1{font-size:clamp(2.1rem,4vw,3.1rem)}
+.feat__cap b{font-size:clamp(1.3rem,2vw,1.7rem)}
+.btn{min-height:44px;padding:.6rem 1.2rem}
+.nav .btn,.cartbtn{min-height:40px}
+.mega .mp__tel{font-size:1.9rem}
+.foot__tel{font-size:1.4rem!important}
+.doc h1{font-size:clamp(2rem,4vw,2.7rem)}
+
 /* ===== shared footer ===== */
 .foot{width:var(--wrap);margin:clamp(2.5rem,6vw,4rem) auto 0;padding:clamp(2rem,4vw,2.8rem) 0 1.4rem;border-top:1px solid var(--line);display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2rem;font-size:.9rem}
 .foot h3{font:600 .8rem/1 var(--f-text,"Instrument Sans",sans-serif);letter-spacing:.02em;color:var(--muted);margin:0 0 .9rem}
