@@ -77,3 +77,9 @@ Logo w oryginale, zgoda na zdjęcia, ceny (79/129/199 zł robocze), godziny otwa
 - Sekcja „Zamów bukiet”: 4 bestsellery ze sklepu (z `data/products.json`, kategoria bukiety, według `rec`) i kafel „Cały sklep”. Kliknięcie otwiera kartę produktu w sklepie (`sklep.html#p=id`). Pod spodem panel „Nie wiesz, co wybrać?”: szybkie zamówienie u florystki w jednym wierszu (wielkość, termin, odbiór, telefon).
 - Wejścia do sklepu: przycisk hero „Zamów bukiet”, przycisk w navbarze (z licznikiem koszyka), w lightboxie galerii „Zamów podobny” albo „Zobacz w sklepie”, dolny pasek na mobile (Zadzwoń / Sklep).
 - Sklep obsługuje deep link `#p=id` i od razu otwiera kartę produktu.
+
+## Zmiany v4.2: rozwijane menu (mega menu)
+- Pozycje w navbarze (Galeria, Sklep, Śluby i dekoracje, Opinie, Kontakt) po najechaniu lub fokusie rozwijają panel z opisem, miniaturami i skrótami. Jeden wspólny panel płynnie zmienia rozmiar i pozycję między pozycjami, treść wjeżdża z kierunku ruchu, elementy pojawiają się kaskadą, a strzałka wskazuje aktywny link. Esc zamyka panel.
+- Sklep w menu: kategorie z miniaturami (linki `sklep.html#kat=…`) i bestseller ze zdjęciem.
+- Na mobile (burger) pod każdą pozycją jest krótki opis.
+- Generator: `tools/mega.py` wstawia panel do `index.html` i `sklep.html`. Treść paneli edytuje się w tym pliku.
