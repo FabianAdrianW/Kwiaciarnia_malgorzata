@@ -76,6 +76,7 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 
 
 
+
 /* ===== mega menu ===== */
 .menu a .menu__desc{display:none}
 .mega{position:absolute;left:0;top:calc(var(--nav-h) - 6px);z-index:49;pointer-events:none;width:0}
@@ -219,6 +220,7 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
 
 
 
+
 <div class="mega" id="mega" aria-hidden="true">
   <div class="mega__box"><span class="mega__tip" aria-hidden="true"></span>
   <div class="mega__track">
@@ -226,7 +228,7 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
       <div class="mp__text"><b class="mp__h">Galeria</b><p>Bukiety, kompozycje i&nbsp;dekoracje z&nbsp;naszej pracowni. Każde zdjęcie można powiększyć.</p>
         <a class="mp__more" href="index.html#oferta">Otwórz galerię<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="mp__thumbs">
-        <a href="index.html#oferta" class="mp__th"><img src="img/hero.webp" alt="" loading="lazy"><span>Pastele</span></a>
+        <a href="index.html#oferta" class="mp__th"><img src="img/p09.webp" alt="" loading="lazy"><span>Pastele</span></a>
         <a href="index.html#oferta" class="mp__th"><img src="img/p10.webp" alt="" loading="lazy"><span>Czerwienie</span></a>
         <a href="index.html#oferta" class="mp__th"><img src="img/p01.webp" alt="" loading="lazy"><span>Śluby</span></a>
       </div>
@@ -238,7 +240,7 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
         <a href="sklep.html#kat=pamiec" class="mp__item"><img src="img/p13.webp" alt="" loading="lazy"><span><b>Pamięć</b><small>Wieńce i&nbsp;kompozycje nagrobne</small></span></a>
         <a href="sklep.html" class="mp__more">Cały sklep<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <a href="sklep.html#p=pastelowy" class="mp__feat"><img src="img/hero.webp" alt="" loading="lazy"><span class="mp__badge">Bestseller</span><span class="mp__cap"><b>Bukiet Pastelowy</b><small>od 189 zł · BLIK, karta albo przy odbiorze</small></span></a>
+      <a href="sklep.html#p=pastelowy" class="mp__feat"><img src="img/p09.webp" alt="" loading="lazy"><span class="mp__badge">Bestseller</span><span class="mp__cap"><b>Bukiet Pastelowy</b><small>od 189 zł · BLIK, karta albo przy odbiorze</small></span></a>
     </section>
     <section class="mp" data-p="sluby" aria-label="Śluby i dekoracje">
       <div class="mp__list">
@@ -247,7 +249,7 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
         <a href="index.html#sluby" class="mp__row"><b>Dekoracje sal</b><small>Stoły, lasy w&nbsp;szkle, balony z&nbsp;helem</small></a>
         <a href="tel:+48570740729" class="mp__more">Umów rozmowę: 570 740 729<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <a href="index.html#sluby" class="mp__feat mp__feat--tall"><img src="img/p01.webp" alt="" loading="lazy"></a>
+      <a href="index.html#sluby" class="mp__feat mp__feat--tall"><img src="img/slub-wiazanka.webp" alt="" loading="lazy"></a>
     </section>
     <section class="mp mp--small" data-p="opinie" aria-label="Opinie">
       <div class="mp__rate"><b>4,5</b><span class="mp__stars" aria-label="4,5 na 5"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg><span style="opacity:.35"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg></span></span><small>148 opinii w&nbsp;Google</small></div>
@@ -296,6 +298,9 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
 </main>
 
 
+
+
+
 <script>
 /* ===== mega menu ===== */
 (()=>{const nav=document.querySelector('.nav'),mega=document.getElementById('mega');if(!mega)return;
@@ -323,8 +328,6 @@ h2{font-size:clamp(1.7rem,2.7vw,2.35rem)}
   addEventListener('scroll',()=>{if(cur&&scrollY>0&&!mega.matches(':hover'))close()},{passive:true});
 })();
 </script>
-
-
 <script>
 /* ===== shared nav: pill follows the cursor, dot marks the current place ===== */
 (()=>{const nav=document.querySelector('.nav'),menu=nav&&nav.querySelector('.menu');if(!menu)return;

@@ -96,3 +96,14 @@ Logo w oryginale, zgoda na zdjęcia, ceny (79/129/199 zł robocze), godziny otwa
 
 ## Zmiany v5.1: mniejsza skala
 - Bazowa wielkość tekstu to 15 px (wcześniej 16). Kontener ma maks. 1120 px. Nagłówki, napis „Galeria”, numer telefonu, cytaty i przyciski są mniejsze o 12–20%. Wartości są w `tools/layout.py`, w sekcji „skala”: jedna zmiana działa na wszystkie strony.
+
+## Zmiany v5.1: nowe zdjęcia (Google Flow)
+- Hero: wygenerowany bukiet na kremowym tle (`img/hero.webp` 1376×768, tło podciągnięte do #FBF7F4; mobile `img/hero-m.webp` 768×1376 przez `<picture>`). Panel zdjęcia ma 66% szerokości, wygaszenie z lewej i u dołu.
+- Dawne zdjęcie hero (prawdziwy bukiet) to teraz `img/p09.webp`: produkt „Bukiet Pastelowy” i miniatury w menu.
+- Śluby: `slub-wiazanka.webp` i `slub-stol.webp` (wygenerowane), zamiast p01/p04. Mega menu Śluby: wiązanka.
+- Opinie: `pracownia.webp` (ręce florystki), pasuje do cytatu o układaniu bukietu.
+- Kontakt: `kwiaciarnia.webp` (wnętrze w szałwii) zamiast p12.
+- Sklep: nowy produkt „Flowerbox Pudrowy” (189 zł, roboczo), `flowerbox.webp`.
+- OG: `img/og.jpg` 1200×630 (flat-lay ze wstążką).
+- Zdjęcia wygenerowane mają 1376 px. Przy ponownym generowaniu warto pobrać wersję 2K.
+- Galeria i karty produktów zostają przy prawdziwych realizacjach.

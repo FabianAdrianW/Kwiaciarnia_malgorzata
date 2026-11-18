@@ -25,7 +25,7 @@
    "cat": "bukiety",
    "name": "Bukiet Pastelowy",
    "price": 219,
-   "img": "img/hero.webp",
+   "img": "img/p09.webp",
    "alt": "img/p16.webp",
    "badge": "Bestseller",
    "colors": [
@@ -122,6 +122,20 @@
    "desc": "Czerwone i żółte róże, słoneczniki i tulipany w kremowym papierze.",
    "rec": 7,
    "featured": true
+  },
+  {
+   "id": "flowerbox",
+   "cat": "kompozycje",
+   "name": "Flowerbox Pudrowy",
+   "price": 189,
+   "img": "img/flowerbox.webp",
+   "colors": [
+    "#F2B8C6",
+    "#C9B6E4",
+    "#FFFFFF"
+   ],
+   "desc": "Piwonie, białe róże i eustoma w pudrowym pudełku z wstążką. Stoi bez wazonu.",
+   "rec": 12
   },
   {
    "id": "slubna",

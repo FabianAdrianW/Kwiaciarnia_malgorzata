@@ -16,7 +16,7 @@ def panels(home):  # home = '' on index, 'index.html' on other pages
       <div class="mp__text"><b class="mp__h">Galeria</b><p>Bukiety, kompozycje i&nbsp;dekoracje z&nbsp;naszej pracowni. Każde zdjęcie można powiększyć.</p>
         <a class="mp__more" href="{h('#oferta')}">Otwórz galerię{ARR}</a></div>
       <div class="mp__thumbs">
-        <a href="{h('#oferta')}" class="mp__th"><img src="img/hero.webp" alt="" loading="lazy"><span>Pastele</span></a>
+        <a href="{h('#oferta')}" class="mp__th"><img src="img/p09.webp" alt="" loading="lazy"><span>Pastele</span></a>
         <a href="{h('#oferta')}" class="mp__th"><img src="img/p10.webp" alt="" loading="lazy"><span>Czerwienie</span></a>
         <a href="{h('#oferta')}" class="mp__th"><img src="img/p01.webp" alt="" loading="lazy"><span>Śluby</span></a>
       </div>
@@ -28,7 +28,7 @@ def panels(home):  # home = '' on index, 'index.html' on other pages
         <a href="sklep.html#kat=pamiec" class="mp__item"><img src="img/p13.webp" alt="" loading="lazy"><span><b>Pamięć</b><small>Wieńce i&nbsp;kompozycje nagrobne</small></span></a>
         <a href="sklep.html" class="mp__more">Cały sklep{ARR}</a>
       </div>
-      <a href="sklep.html#p=pastelowy" class="mp__feat"><img src="img/hero.webp" alt="" loading="lazy"><span class="mp__badge">Bestseller</span><span class="mp__cap"><b>Bukiet Pastelowy</b><small>od 189 zł · BLIK, karta albo przy odbiorze</small></span></a>
+      <a href="sklep.html#p=pastelowy" class="mp__feat"><img src="img/p09.webp" alt="" loading="lazy"><span class="mp__badge">Bestseller</span><span class="mp__cap"><b>Bukiet Pastelowy</b><small>od 189 zł · BLIK, karta albo przy odbiorze</small></span></a>
     </section>
     <section class="mp" data-p="sluby" aria-label="Śluby i dekoracje">
       <div class="mp__list">
@@ -37,7 +37,7 @@ def panels(home):  # home = '' on index, 'index.html' on other pages
         <a href="{h('#sluby')}" class="mp__row"><b>Dekoracje sal</b><small>Stoły, lasy w&nbsp;szkle, balony z&nbsp;helem</small></a>
         <a href="tel:+48570740729" class="mp__more">Umów rozmowę: 570 740 729{ARR}</a>
       </div>
-      <a href="{h('#sluby')}" class="mp__feat mp__feat--tall"><img src="img/p01.webp" alt="" loading="lazy"></a>
+      <a href="{h('#sluby')}" class="mp__feat mp__feat--tall"><img src="img/slub-wiazanka.webp" alt="" loading="lazy"></a>
     </section>
     <section class="mp mp--small" data-p="opinie" aria-label="Opinie">
       <div class="mp__rate"><b>4,5</b><span class="mp__stars" aria-label="4,5 na 5">{STAR*4}<span style="opacity:.35">{STAR}</span></span><small>148 opinii w&nbsp;Google</small></div>
