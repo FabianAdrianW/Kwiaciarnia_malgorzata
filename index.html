@@ -350,7 +350,10 @@ details.more[open] summary svg{transform:rotate(45deg)}
 .slide{position:absolute;top:0;left:0;right:0;margin:0;opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease),transform .7s var(--ease);pointer-events:none}
 .slide.is-on{opacity:1;transform:none;pointer-events:auto}
 .slide blockquote{margin:0;font:italic 340 clamp(1.35rem,2.5vw,2.05rem)/1.4 var(--f-display);letter-spacing:-.012em;text-wrap:pretty}
-.slide blockquote::before{content:"\201E";display:block;font:300 4.5rem/.6 var(--f-display);color:var(--rose);margin-bottom:.6rem;font-style:normal}
+.slide blockquote{padding-left:1.1em}
+.slide blockquote::before,.slide blockquote::after{font:300 1.7em/0 var(--f-display);color:var(--rose);font-style:normal}
+.slide blockquote::before{content:"\201E";display:inline-block;width:0;position:relative;left:-.62em;top:-.16em}
+.slide blockquote::after{content:"\201D";margin-left:.06em;position:relative;top:.3em}
 .slide figcaption{display:flex;align-items:center;gap:.7rem;margin-top:1.2rem;font-size:.92rem}
 .slide figcaption i{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blush);font:600 .85rem/1 var(--f-text);font-style:normal;color:var(--rose-deep)}
 .slide figcaption span{color:var(--muted)}
@@ -404,10 +407,10 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;paddi
 @media (max-width:860px){
   .screen{min-height:0;padding-block:3rem}
   .hero__grid,.split,.rev,.order__grid{grid-template-columns:1fr}
-  .hero{display:block;min-height:0;padding-top:0}
+  .hero{display:block;min-height:0;padding:min(92vw,520px) 0 2rem}
+  .hero__photo{inset:0 0 auto 0;width:100%;height:min(128vw,720px);-webkit-mask:linear-gradient(180deg,#000 52%,transparent 97%);mask:linear-gradient(180deg,#000 52%,transparent 97%)}
+  .hero__photo img{object-position:50% 16%;transform-origin:50% 30%}
   .hero__in{max-width:none}
-  .hero__photo img{object-position:50% 30%}
-  .hero__photo{position:relative;inset:auto;width:100%;height:min(64svh,520px);-webkit-mask:linear-gradient(180deg,#000 55%,transparent);mask:linear-gradient(180deg,#000 55%,transparent);margin-bottom:-4rem}
   .hero__scroll{display:none}
   /* native horizontal scroll on touch */
   .gal{min-height:0;padding-block:3rem}
